@@ -1,34 +1,30 @@
-const boton = document.getElementById('enviar');
-
-boton.addEventListener('click', async() => {
+function iniciarSesion() {
     const correo = document.getElementById('correo').value;
     const contrasenia = document.getElementById('contrasenia').value;
 
+    fetch('http://localhost:3000/auth/login', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({correo, contrasenia})
+    })
+            .then(response => {
+                if (response.ok) {
+                    alert('Inicio de sesión exitoso');
+                } else {
+                    alert('Error al iniciar sesión');
+                }
+            })
+            .catch(error => console.error('Error:', error));
+}
 
-    try {
-        const result = await fetch('http://localhost:3001/auth/login', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({correo: correo, contrasenia: contrasenia})
-        });
-
-        const data = await result.json();
-        console.log(data);
-    } catch (error) {
-        console.error(error);
-    }
-    ;
-});
-
-
-
+// Función para modificar personal
 function modificarPersonal() {
     const id = document.getElementById('personalIdModificar').value;
     const nombre = document.getElementById('nombreModificar').value;
 
-    fetch(`http://localhost:3000/personal/modificarPersonal/${id}`, {
+    fetch(`http://localhost:3000/personal/modificarPersonal/${id}`, {// Asegúrate de que 'id' no esté vacío
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'
@@ -79,24 +75,24 @@ function crearPersonal() {
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({
-            nombre,
-            email: correo,
-            telefono,
-            curp,
-            tipo_contrato: tipoContrato,
-            fecha_ingreso: fechaIngreso,
-            area
+        body: JSON.stringify({ 
+            nombre, 
+            email: correo, // Cambia 'correo' a 'email' según tu DTO
+            telefono, 
+            curp, 
+            tipo_contrato: tipoContrato, 
+            fecha_ingreso: fechaIngreso, 
+            area 
         })
     })
-            .then(response => {
-                if (response.ok) {
-                    alert('Personal creado con éxito');
-                } else {
-                    alert('Error al crear personal');
-                }
-            })
-            .catch(error => console.error('Error:', error));
+    .then(response => {
+        if (response.ok) {
+            alert('Personal creado con éxito');
+        } else {
+            alert('Error al crear personal');
+        }
+    })
+    .catch(error => console.error('Error:', error));
 }
 
 
