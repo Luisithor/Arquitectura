@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Acceso al Sistema Universitario</title>
+    <link href="CSS/mycss.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+    <div id="login-form" class="login-container">
+        <img src="img/logo.png" alt="Logo Universidad">
+        <h1>Acceso al Portal Universitario</h1>
+        <form onsubmit="return iniciarSesion(event);">
+            <input type="text" id="correo" placeholder="Número de Control" required>
+            <input type="password" id="contrasenia" placeholder="Contraseña" required>
+            <input type="submit" value="Ingresar">
+        </form>
+        <div class="footer">
+            <p>¿Olvidaste tu contraseña? <a href="#">Recuperar</a></p>
+            <p><a href="#">Contacto</a> | <a href="#">Ayuda</a></p>
+        </div>
+    </div>
+    
+    <script src="Js/personal.js" type="text/javascript"></script>
+</body>
+</html>

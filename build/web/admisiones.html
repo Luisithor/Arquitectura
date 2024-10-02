@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admisiones</title>
+    <link rel="stylesheet" href="css/estilos.css">
+    <script defer src="Js/admisiones.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Admisiones y Oferta Educativa</h1>
+        </header>
+
+        <div class="form-container">
+            <h2>Crear Aspirante</h2>
+            <form id="aspirante-form">
+                <input type="text" id="nombre" placeholder="Nombre" required>
+                <input type="text" id="apellido" placeholder="Apellido" required>
+                <input type="email" id="correo" placeholder="Correo" required>
+                <button type="submit">Registrar Aspirante</button>
+            </form>
+        </div>
+
+        <div class="aspirantes-list">
+            <h2>Aspirantes Registrados</h2>
+            <div id="aspirantes-list"></div>
+        </div>
+
+        <div class="periodos-container">
+            <h2>Periodos Disponibles</h2>
+            <div id="periodos-list"></div>
+        </div>
+    </div>
+</body>
+</html>
